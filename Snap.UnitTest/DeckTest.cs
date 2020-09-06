@@ -80,5 +80,36 @@ namespace Snap.UnitTest
             Assert.Equal(52, recievedCards.Count);
             Assert.Empty(deck.Cards);
         }
+
+        [Fact]
+        public void CreateDeck_OneDeckTwice_DecksAreEqual()
+        {
+            //Arrange
+            var deck1 = new Deck();
+            var deck2 = new Deck();
+
+            //Act
+            deck1.CreateDecks(1);
+            deck2.CreateDecks(1);
+
+            //Assert
+            Assert.Equal(deck1.Cards, deck2.Cards);
+        }
+
+        [Fact]
+        public void Shuffle_OneDeck_CardsAreInADifferentOrder()
+        {
+            //Arrange
+            var unshuffledDeck = new Deck();
+            unshuffledDeck.CreateDecks(1);
+            var shuffledDeck = new Deck();
+            shuffledDeck.CreateDecks(1);
+
+            //Act
+            shuffledDeck.Shuffle();  //Note: there is a chance that shuffle will return the pack in the same order, but that is 1 / 52 Factorial
+
+            //Assert
+            Assert.NotEqual(unshuffledDeck.Cards, shuffledDeck.Cards);
+        }
     }
 }
