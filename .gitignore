@@ -3,3 +3,12 @@
 ################################################################################
 
 /Snap.UnitTest/bin/Debug/netcoreapp2.1
+/Snap.UnitTest/obj
+/Snap/bin/Debug/netcoreapp2.1
+/Snap/obj/Debug/netcoreapp2.1
+/Snap/obj/Snap.csproj.nuget.g.targets
+/Snap/obj/Snap.csproj.nuget.g.props
+/Snap/obj/Snap.csproj.nuget.dgspec.json
+/Snap/obj/Snap.csproj.nuget.cache
+/Snap/obj/project.assets.json
+/.vs/Snap/v16
