@@ -1,6 +1,7 @@
 using Snap.Classes;
 using Snap.Game;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Snap.UnitTest
@@ -59,6 +60,25 @@ namespace Snap.UnitTest
 
             //Assert
             Assert.Equal(new Card(SuitEnum.Heart, FaceValueEnum.Ace), card);
+        }
+
+        [Fact]
+        public void DealCard_OneDecks_FiftyTwoCardsDrainsTheDeck()
+        {
+            //Arrange
+            var deck = new Deck();
+            deck.CreateDecks(1);
+
+            //Act
+            var recievedCards = new List<Card>();
+            for(int x = 1; x <= 52; x++)
+            {
+                recievedCards.Add(deck.DealCard());
+            }
+
+            //Assert
+            Assert.Equal(52, recievedCards.Count);
+            Assert.Empty(deck.Cards);
         }
     }
 }
