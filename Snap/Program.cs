@@ -17,7 +17,9 @@ namespace Snap
             var deck = new Deck();
             deck.CreateDecks(DecksToUse);
             deck.Shuffle();
-            
+
+            var game = new GameRunner(StrategyToUse, deck);
+            game.Execute();
         }
 
         private static void IntroText()
